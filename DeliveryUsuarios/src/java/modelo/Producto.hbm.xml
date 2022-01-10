@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Producto" table="producto" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idProducto" type="java.lang.Integer">
+            <column name="id_producto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categoria" class="modelo.Categoria" fetch="select">
+            <column name="id_categoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="puntoVenta" class="modelo.PuntoVenta" fetch="select">
+            <column name="id_punto_venta" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="precio" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" length="200" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="detallePedidos" table="detalle_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetallePedido" />
+        </set>
+    </class>
+</hibernate-mapping>

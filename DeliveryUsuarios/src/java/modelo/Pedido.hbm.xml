@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Pedido" table="pedido" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idPedido" type="java.lang.Integer">
+            <column name="id_pedido" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estado" class="modelo.Estado" fetch="select">
+            <column name="id_estado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="metodoPago" class="modelo.MetodoPago" fetch="select">
+            <column name="id_metodo_pago" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoEntrega" class="modelo.TipoEntrega" fetch="select">
+            <column name="id_tipo_entrega" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ubicacion" class="modelo.Ubicacion" fetch="select">
+            <column name="id_ubicacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaventa" type="date">
+            <column name="fechaventa" length="10" not-null="true" />
+        </property>
+        <property name="total" type="int">
+            <column name="total" not-null="true" />
+        </property>
+        <property name="detalleUbicacion" type="string">
+            <column name="detalle_ubicacion" length="100" />
+        </property>
+        <set name="detallePedidos" table="detalle_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pedido" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetallePedido" />
+        </set>
+    </class>
+</hibernate-mapping>

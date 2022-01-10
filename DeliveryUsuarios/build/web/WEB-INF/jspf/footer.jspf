@@ -1,0 +1,59 @@
+<div id="layoutDefault_footer">
+    <footer class="footer pt-10 pb-5 mt-auto bg-dark footer-dark">
+        <div class="container">
+            <div class="row">
+                <!-- TITULO DUOC Y REDES SOCIALES -->
+                <div class="col-lg-3">
+                    <div class="footer-brand">Duoc delivery</div>
+                    <div class="mb-3">Mejorando expectativas</div>
+                    <div class="icon-list-social mb-5">
+                        <a class="icon-list-social-link" href="javascript:void(0);"><i
+                                class="fab fa-instagram"></i></a><a class="icon-list-social-link"
+                                                            href="javascript:void(0);"><i class="fab fa-facebook"></i></a><a
+                            class="icon-list-social-link" href="javascript:void(0);"><i
+                                class="fab fa-github"></i></a><a class="icon-list-social-link"
+                                                         href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="row" style="place-content: center;"> <!-- -->
+                        <!-- COLUMNA 1 -->
+                        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-uppercase-expanded text-xs mb-4">Servicios</div>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="javascript:void(0);">AVA</a></li>
+                                <li class="mb-2"><a href="javascript:void(0);">Vivo Duoc</a></li>
+                                <li class="mb-2"><a href="javascript:void(0);">Duoc UC</a></li>
+
+                            </ul>
+                        </div>
+                        <!-- COLUMNA 2 -->
+                        
+                        <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+                            <div class="text-uppercase-expanded text-xs mb-4">Tiendas Asociadas</div>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="javascript:void(0);">Bistro</a></li>
+                                <li class="mb-2"><a href="javascript:void(0);">Achoclonados</a></li>
+                                <li class="mb-2"><a href="javascript:void(0);">Doggis</a></li>
+                                <li class="mb-2"><a href="javascript:void(0);">Starbucks</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER FINAL  -->
+            <hr class="my-5" />
+            <div class="row align-items-center">
+                <div class="col-md-6 small">Copyright &copy; Delivery Duoc 2020</div>
+                <div class="col-md-6 text-md-right small">
+                    <a href="javascript:void(0);">Duoc UC</a>
+                    &middot;
+                    <a href="javascript:void(0);">Terminos &amp; Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

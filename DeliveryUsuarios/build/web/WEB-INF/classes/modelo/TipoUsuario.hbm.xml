@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.TipoUsuario" table="tipo_usuario" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idTipoUsuario" type="java.lang.Integer">
+            <column name="id_tipo_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="40" not-null="true" />
+        </property>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

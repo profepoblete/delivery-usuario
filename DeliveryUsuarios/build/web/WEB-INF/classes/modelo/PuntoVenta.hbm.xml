@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.PuntoVenta" table="punto_venta" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idPuntoVenta" type="java.lang.Integer">
+            <column name="id_punto_venta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sede" class="modelo.Sede" fetch="select">
+            <column name="id_sede" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="empresa" type="string">
+            <column name="empresa" length="100" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" length="200" not-null="true" />
+        </property>
+        <property name="horaInicio" type="time">
+            <column name="hora_inicio" length="8" not-null="true" />
+        </property>
+        <property name="horaFin" type="time">
+            <column name="hora_fin" length="8" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_punto_venta" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Producto" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_punto_venta" />
+            </key>
+            <one-to-many class="modelo.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

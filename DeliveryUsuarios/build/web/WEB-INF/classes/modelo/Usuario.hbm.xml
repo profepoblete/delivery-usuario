@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Usuario" table="usuario" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="puntoVenta" class="modelo.PuntoVenta" fetch="select">
+            <column name="id_punto_venta" />
+        </many-to-one>
+        <many-to-one name="sede" class="modelo.Sede" fetch="select">
+            <column name="id_sede" />
+        </many-to-one>
+        <many-to-one name="tipoUsuario" class="modelo.TipoUsuario" fetch="select">
+            <column name="id_tipo_usuario" not-null="true" />
+        </many-to-one>
+        <property name="rut" type="string">
+            <column name="rut" length="12" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="45" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Pedido" />
+        </set>
+    </class>
+</hibernate-mapping>

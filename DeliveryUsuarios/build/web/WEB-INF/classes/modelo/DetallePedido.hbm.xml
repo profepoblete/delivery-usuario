@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-11-2020 11:48:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.DetallePedido" table="detalle_pedido" catalog="deliveryduoc" optimistic-lock="version">
+        <id name="idDetalle" type="java.lang.Integer">
+            <column name="id_detalle" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="pedido" class="modelo.Pedido" fetch="select">
+            <column name="id_pedido" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="modelo.Producto" fetch="select">
+            <column name="id_producto" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="subtotal" type="int">
+            <column name="subtotal" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
