@@ -60,8 +60,19 @@
                                             <td>
                                                 <!--Aqui el test debe cambiar de acuerdo al registro de estado q tengan en bd-->
                                                 <form method="POST" action="MisPedidos">
-               
-                                                    <input type="submit" class="btn btn-info" name="btnConfirmacion" value="Confirmar entrega" <c:if test="${pedidoBuscado.estado.idEstado!=5}">disabled</c:if>/>
+                                                    <input type="submit" 
+                                                           class="<c:choose>
+                                                               <c:when test="${pedidoBuscado.estado.idEstado!=5 and pedidoBuscado.estado.idEstado!=7}">
+                                                                   btn btn-info
+                                                               </c:when>
+                                                               <c:when test="${pedidoBuscado.estado.idEstado==7}">
+                                                                   btn btn-success
+                                                               </c:when>
+                                                               <c:otherwise>
+                                                                   btn btn-warning
+                                                               </c:otherwise>
+                                                           </c:choose>" name="btnConfirmacion" id="btnConfirmacion" value="Confirmar Entrega" <c:if test="${pedidoBuscado.estado.idEstado!=5 and pedidoBuscado.estado.idEstado!=7}"> data-toggle="tooltip" data-placement="bottom" title="Podras confirmar cuando tu pedido se encuentre en estado 'Entregado'"</c:if>/>
+                                                               
                                                     <input type="hidden" name="idPedidoConfirmado" value="${pedidoBuscado.idPedido}"/>
                                                 </form>
 
@@ -72,15 +83,15 @@
                                                 <td colspan="10">
                                                     <table>
                                                         <tr>
+                                                            <th>Imagen</th>
                                                             <th>Producto</th>
-                                                            <th>Codigo</th>
                                                             <th>Valor unitario</th>
                                                         </tr>
                                                       
                                                     <c:forEach items="${pedidoBuscado.detallePedidos}" var="detalleP">
                                                         <tr>
-                                                            <td>${detalleP.producto.nombre}</td>
-                                                            <td>${detalleP.producto.idProducto}</td>
+                                                            <td><img src='img/producto/${detalleP.producto.imagen}' class='img-fluid' width='100px'</td>
+                                                            <td>${detalleP.producto.nombre}</td>                                                            
                                                             <td>$ ${detalleP.producto.precio}</td>
                                                         </tr>
                                                     </c:forEach>
@@ -96,12 +107,13 @@
                 </main>
             </div>
             
-            <jsp:include page="footerMantenedor.jspf" />    
+            <jsp:include page="../Mantenedor/footerMantenedor.jspf" />    
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
         </script>
         <!-- POR EL MOMENTO NO INFLUYE EL SCRIPT -->
         <script src="js/scripts.js"></script>
+        <script src='js/excepciones.js'></script>
     </body>
 </html>

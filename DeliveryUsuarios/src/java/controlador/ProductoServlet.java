@@ -146,7 +146,7 @@ public class ProductoServlet extends HttpServlet {
         try ( //lo transforma en una cadena de datos
                 InputStream is = archivo.getInputStream()) {
             //crea un archivo en la locacion indicada
-            File f = new File("D:/Users/Eduardo/Documents/NetBeansProjects/DeliveryUsuariosDuoc/DeliveryUsuarios/web/img/producto/" + imagen);
+            File f = new File("C:\\Users\\acidsulfurico\\Documents\\NetBeansProjects\\project\\delivery-usuario\\DeliveryUsuarios\\web\\img\\producto\\" + imagen);
             //D:\Users\Eduardo\Documents\NetBeansProjects\DeliveryUsuariosDuoc\DeliveryUsuarios\web\img\producto
             //lee los datos y los guarda en el archivo
             FileOutputStream ous = new FileOutputStream(f);
@@ -197,7 +197,7 @@ public class ProductoServlet extends HttpServlet {
             try ( //lo transforma en una cadena de datos
                     InputStream is = archivo.getInputStream()) {
                 //crea un archivo en la locacion indicada.
-                File f = new File("C:/Users/Eduardo/Documents/NetBeansProjects/DeliveryUsuariosDuoc/DeliveryUsuarios/web/img/producto/" + imagen);
+                File f = new File("C:\\Users\\acidsulfurico\\Documents\\NetBeansProjects\\project\\delivery-usuario\\DeliveryUsuarios\\web\\img\\producto\\" + imagen);
                 try ( //Recuerda colocar tu ruta para que el CRUD funcione correctamente.
                         //lee los datos y los guarda en el archivo
                         FileOutputStream ous = new FileOutputStream(f)) {

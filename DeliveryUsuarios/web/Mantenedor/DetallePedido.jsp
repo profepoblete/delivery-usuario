@@ -75,14 +75,14 @@
                                         <td colspan="10">
                                             <table>
                                                 <tr>
+                                                    <th>Imagen</th>
                                                     <th>Producto</th>
-                                                    <th>Codigo</th>
                                                     <th>Valor unitario</th>
                                                 </tr>
                                                 <c:forEach items="${pedidoBuscado.detallePedidos}" var="detalleP">
                                                     <tr>
+                                                        <td><img src="img/producto/${detalleP.producto.imagen}" class="img-fluid" width="100px"/></td>
                                                         <td>${detalleP.producto.nombre}</td>
-                                                        <td>${detalleP.producto.idProducto}</td>
                                                         <td>$ ${detalleP.producto.precio}</td>
                                                     </tr>
                                                 </c:forEach>

@@ -69,11 +69,10 @@ public class PedidoDAO {
         List<Pedido> pedidos = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "Select distinct p from Pedido p, DetallePedido dp where dp.producto.puntoVenta.idPuntoVenta= :idPuntoVenta and"
-                    + " dp.pedido.estado.idEstado not in (5, 6, 7) order by p.idPedido DESC";
-            Query q = sesion.createQuery(hql);
-            q.setParameter("idPuntoVenta", idPuntoVenta);
-            
+            Query q = sesion.createQuery("Select distinct p from Pedido p, DetallePedido dp where dp.pedido = p.idPedido"
+                    + " and p.estado.idEstado not in (5,6,7)"
+                    + " and dp.producto.puntoVenta.idPuntoVenta= :punto order by p.idPedido DESC").setParameter("punto",idPuntoVenta);
+            //q.setParameter("idPuntoVenta", idPuntoVenta);
             pedidos = q.list();
         } catch (Exception e) {
             System.out.println(e.getMessage());
