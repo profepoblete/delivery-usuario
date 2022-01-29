@@ -35,6 +35,7 @@
                         <h2 align="center">Creación de Producto</h2>
                         <br>
                     </div>
+                    <div class="container" id="msje"></div>
                     <form method="POST" enctype="multipart/form-data" name="guardarProducto" action="Producto">
                         <table align="center" > <!--Esta tabla abarca los campos de creación y modificación de productos-->
                             <tr>
@@ -50,8 +51,8 @@
                                 </th>
                             </tr>
                             <tr>
-                                <th><label for="precio">Precio</label></th>
-                                <th><input type="text" id="precio" name="precio" value="${productoMod.precio}" required></th>
+                                <th><label for="precio" >Precio</label></th>
+                                <th><input type="number" id="prec" name="precio" value="${productoMod.precio}" required></th>
                                 <th id="th_imagenProd">
                                     <c:choose>
                                         <c:when test="${productoMod.idProducto != null}">
@@ -63,7 +64,7 @@
                                         <c:otherwise>
                                             <div>
                                                 <label for="imagen">Imagen</label>
-                                                <input class="form-control" type="file" name="imagen" onchange="cargarArchivo(this)">
+                                                <input class="form-control" type="file" name="imagen" id="imagen" onchange="cargarArchivo(this)">
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
@@ -77,7 +78,7 @@
                         <br>
                         <div id="btns_creacion">
                             <input type="reset" value="Cancelar" name="btnPost">
-                            <input type="submit" value="${modo}" name="btnPost">
+                            <input type="submit" value="${modo}" name="btnPost" id="btn">
                         </div>
                     </form>
                     <iframe name="null" style="display: none;"></iframe>
@@ -172,6 +173,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
         </script>
-
+        <script src="js/excepciones.js"></script>
     </body>
 </html>
